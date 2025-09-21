@@ -9,11 +9,23 @@
   <p id="deviceInfo">読み込み中...</p>
 
   <script>
-    // User-Agentを取得
-    const userAgent = navigator.userAgent;
+  const ua = navigator.userAgent;
 
-    // 表示
-    document.getElementById("deviceInfo").textContent = "User-Agent: " + userAgent;
-  </script>
+  let device = "不明なデバイス";
+
+  if (/iPhone/.test(ua)) {
+    device = "iPhone";
+  } else if (/iPad/.test(ua)) {
+    device = "iPad";
+  } else if (/Android/.test(ua)) {
+    device = "Androidデバイス";
+  } else if (/Windows/.test(ua)) {
+    device = "Windows PC";
+  } else if (/Macintosh/.test(ua)) {
+    device = "Mac";
+  }
+
+  document.getElementById("deviceInfo").textContent = `判定されたデバイス: ${device}\nUser-Agent: ${ua}`;
+</script>
 </body>
 </html>
